@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css//bootstrap-vue.css" />
+    <title>Items</title>
+  </head>
+  <body>
+    <div id="app">
+      <b-card class="mb-2 col-11 col-md-6 mx-auto mt-5">
+        <b-card-text>
+          <b-form @submit="onSubmit">
+            <b-form-group id="input-group-1" label="Nombre:">
+              <b-form-input
+                type="text"
+                placeholder="Ingresa un nombre"
+                v-model="name"
+                :state="name_state"
+                @keydown="name_state = null"
+              ></b-form-input>
+            </b-form-group>
+
+            <b-row class="mt-3">
+              <b-col class="d-flex justify-content-end">
+                <b-button type="submit" variant="primary">Guardar</b-button>
+              </b-col>
+            </b-row>
+          </b-form>
+        </b-card-text>
+      </b-card>
+
+      <b-card class="mb-2 col-11 col-md-6 mx-auto mt-2 text-center">
+        <b-table striped hover :items="data" v-if="data.length" small></b-table>
+        <h5 v-else>No se ha encontrado información!</h5>
+      </b-card>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script src="js/bootstrap-vue.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
